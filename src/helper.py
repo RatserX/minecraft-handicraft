@@ -35,18 +35,19 @@ class Number:
 class String:
     def input_option(prompt: typing.Any, options: list[str], case: bool = True, default: str = None) -> str:
         input_option: str = input(prompt)
+        parsed_option: str = input_option
         
         if (not input_option):
             return default
         else:
             if (case):
-                input_option: str = input_option.upper()
+                parsed_option: str = parsed_option.upper()
 
             for option in options:
                 if (case):
                     option: str = option.upper()
                 
-                if (input_option == option):
+                if (parsed_option == option):
                     return input_option
         
         return None
