@@ -1,7 +1,7 @@
 {
     "profiles": [
         {
-            "location": "https://raw.githubusercontent.com/NillerMedDild/Enigmatica4/master/minecraftinstance.json",
+            "location": "https://raw.githubusercontent.com/RatserX/minecraft-instance-parse/main/public/profile/minecraftinstance.json",
             "name": "Web"
         },
         {
