@@ -8,7 +8,7 @@
 
 Parser for Minecraft instance profiles. It reads and processes profiles and allows the download of selected loaders and addons.
 
-Multiple profiles and be configured and they can be retrieved either from a local directory or a web location. Also, you can specify the download directory, it will create the appropiate files if the path does not exists.
+Multiple profiles and be configured and they can be retrieved either from a local directory or a web location. It allows the selection of a download directory, creating the appropiate directories if the path does not exists.
 
 ![Minecraft Instance Parse](https://raw.githubusercontent.com/RatserX/ratserx.github.io/master/public/images/minecraft-instance-parse.gif)
 
