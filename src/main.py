@@ -50,16 +50,14 @@ def main():
                 break
             
             helper.Void.deprint()
-            logger_instance.info("Invalid profile")
+            logger_instance.warn("Invalid profile")
 
     profile: dict = profiles[profile_index]
     location_template: string.Template = string.Template(profile["location"])
-
-    location_template.substitute({
-        "FILE_PUBLIC_PATH": file_public_path
+    location: str = location_template.substitute({
+        "PROFILE_PUBLIC_PATH": profile_public_path
     })
-
-    location = location_template.template
+    
     parse_option: dict = {}
 
     if (os.path.isfile(location)):
@@ -71,41 +69,65 @@ def main():
         with requests.get(location) as response:
             parse_option = response.json()
     
-    def parse_progress_callback(parse_progress: parse.ParseProgress):
+    def parse_progress_callback(parse_progress: parse.ParseProgress) -> typing.Union[str, None]:
         parse_progress_message: typing.Union[list[str], None] = parse_progress.message
         parse_progress_state: str = parse_progress.state
-
-        pattern = r"\|"
-
-        if (parse_progress_state == parse.ParseState.VALIDATE_INFO_ADDON_DETAIL):
+        
+        if (parse_progress_state == parse.ParseState.VALIDATE_INFO_ADDON_INSTALL_DRAFT):
+            installed_file_display_name: str = parse_progress_message[0]
+            installed_file_download_url: str = parse_progress_message[1]
+            installed_file_file_date: str = parse_progress_message[2]
+            installed_file_file_name: str = parse_progress_message[3]
+            
+            logger_instance.info_append(f"Drafting addon installation . . .")
+            logger_instance.info_append(f"Display name: {installed_file_display_name}")
+            logger_instance.info_append(f"Download URL: {installed_file_download_url}")
+            logger_instance.info_append(f"File date: {installed_file_file_date}")
+            logger_instance.info_append(f"File name: {installed_file_file_name}")
+        elif (parse_progress_state == parse.ParseState.VALIDATE_INFO_ADDON_INSTALL_OPTION):
             installed_file_display_name: str = parse_progress_message[0]
             installed_file_download_url: str = parse_progress_message[1]
             installed_file_file_date: str = parse_progress_message[2]
             installed_file_file_name: str = parse_progress_message[3]
 
-            logger_instance.info_append(f"--- ADDON ---")
-            logger_instance.info_append(f"Display name: {installed_file_display_name}")
-            logger_instance.info_append(f"Download URL: {installed_file_download_url}")
-            logger_instance.info_append(f"File date: {installed_file_file_date}")
-            logger_instance.info_append(f"File name: {installed_file_file_name}")
-        elif (parse_progress_state == parse.ParseState.VALIDATE_INFO_INSTANCE_DETAIL):
-            install_path: str = parse_progress_message[0]
-            name: str = parse_progress_message[1]
+            addon_install_option: str = None
 
             while True:
-                input_path: str = helper.String.input_path(f"Select install path (Default '{install_path}'): ", install_path)
-                
-                if (input_path is not None):
-                    install_path = input_path
+                input_addon_install_option: str = helper.String.input_option(f"Verifying addon '{installed_file_display_name}' (Y: Process installation; N: Skip installation; A: Install everything): ", ["A", "N", "Y"])
+
+                if (input_addon_install_option is not None):
+                    addon_install_option: str = input_addon_install_option.upper()
 
                     break
                 
                 helper.Void.deprint()
-                logger_instance.info("Invalid install path")
+                logger_instance.warn("Invalid addon install option")
+            
+            logger_instance.info_append(f"--- ADDON ---")
+
+            return addon_install_option
+        elif (parse_progress_state == parse.ParseState.VALIDATE_INFO_INSTANCE_INSTALL_PATH):
+            install_path: str = file_public_path
+            name: str = parse_progress_message[1]
+
+            instance_install_path: str = os.path.normpath(install_path)
+
+            while True:
+                input_instance_install_path: str = helper.String.input_path(f"Select install path (Default '{install_path}'): ", instance_install_path)
+                
+                if (input_instance_install_path is not None):
+                    instance_install_path = input_instance_install_path
+
+                    break
+                
+                helper.Void.deprint()
+                logger_instance.warn("Invalid instance install path")
             
             logger_instance.info_append(f"--- INSTANCE ---")
             logger_instance.info_append(f"Install path: {install_path}")
             logger_instance.info_append(f"Name: {name}")
+            
+            return instance_install_path
         elif (parse_progress_state == parse.ParseState.VALIDATE_INFO_PLATFORM_DETAIL):
             base_mod_loader_date_modified: str = parse_progress_message[0]
             base_mod_loader_download_url: str = parse_progress_message[1]
@@ -117,6 +139,15 @@ def main():
             logger_instance.info_append(f"Download URL: {base_mod_loader_download_url}")
             logger_instance.info_append(f"Forge version: {base_mod_loader_forge_version}")
             logger_instance.info_append(f"Minecraft version: {base_mod_loader_minecraft_version}")
+        elif (parse_progress_state == parse.ParseState.VALIDATE_WARN_ADDON_INSTALL_SKIP):
+            installed_file_display_name: str = parse_progress_message[0]
+            installed_file_download_url: str = parse_progress_message[1]
+            installed_file_file_date: str = parse_progress_message[2]
+            installed_file_file_name: str = parse_progress_message[3]
+            
+            logger_instance.warn_append(f"Skipping addon installation . . .")
+        
+        return None
     
     try:
         parse_instance = parse.Parse(parse_option)
@@ -126,5 +157,14 @@ def main():
         exception: parse.ParseProgress = e.args[0]
         exception_message: typing.Union[list[str], None] = exception.message
         exception_state: str = exception.state
+
+        if (exception_state == parse.ParseState.VALIDATE_CRITICAL_ADDON_DOWNLOAD_PROGRESS):
+            message: str = exception_message[0]
+            installed_file_display_name: str = exception_message[1]
+            installed_file_download_url: str = exception_message[2]
+            installed_file_file_date: str = exception_message[3]
+            installed_file_file_name: str = exception_message[4]
+            
+            logger_instance.critical_append(f"Cannot download file", f"Message: {message}", f"Display Name: {installed_file_display_name}", f"Download URL: {installed_file_download_url}", f"File Date: {installed_file_file_date}", f"File Name: {installed_file_file_name}")
 
 main()

@@ -1,2 +1,3 @@
 alog>=1.1.0
+tqdm>=4.55.0
 validators>=0.18.2

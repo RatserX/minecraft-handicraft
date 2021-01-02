@@ -1,12 +1,12 @@
 {
     "profiles": [
         {
-            "location": "$FILE_PUBLIC_PATH/maincraftinstance.json",
-            "name": "Local"
-        },
-        {
             "location": "https://raw.githubusercontent.com/NillerMedDild/Enigmatica4/master/minecraftinstance.json",
             "name": "Web"
+        },
+        {
+            "location": "$PROFILE_PUBLIC_PATH/minecraftinstance.json",
+            "name": "Local"
         }
     ]
 }
