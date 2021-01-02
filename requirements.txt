@@ -1,0 +1,2 @@
+alog>=1.1.0
+validators>=0.18.2
