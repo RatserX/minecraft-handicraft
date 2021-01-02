@@ -76,7 +76,7 @@ class Void:
 
             desc: str = url_split[-1]
             response: requests.Response = requests.get(url, stream = True)
-            content_length: str = response.headers.get("content-length", 0)
+            content_length: str = response.headers.get("Content-Length", 0)
             total: int = int(content_length)
 
             with tqdm.tqdm.wrapattr(f, "write", desc = desc, miniters = 1, total = total) as fout:
