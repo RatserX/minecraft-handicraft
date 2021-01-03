@@ -2,8 +2,8 @@
 
 > Parser for Minecraft instance profiles
 
-[![License MIT](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/RatserX/minecraft-instance-parse/blob/main/LICENSE)
-[![Made With Python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![python-39-blue](https://img.shields.io/badge/python-v3.9-blue)](https://www.python.org/)
+[![license-mit-green](https://img.shields.io/badge/license-MIT-green)](https://github.com/RatserX/minecraft-instance-parse/blob/main/LICENSE)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 [![Buy me a coffee](https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg)](https://www.buymeacoffee.com/Ratser)
