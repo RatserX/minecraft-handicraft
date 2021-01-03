@@ -31,4 +31,4 @@ pip3 install -r "requirements.txt"
 
 ## License
 
-MIT © RatserX
+© RatserX
