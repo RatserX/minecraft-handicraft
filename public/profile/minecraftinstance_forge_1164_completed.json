@@ -30,7 +30,7 @@
   "isUnlocked": true,
   "javaArgsOverride": null,
   "javaDirOverride": null,
-  "lastPlayed": "2021-01-03T21:09:13.7861118Z",
+  "lastPlayed": "2021-01-03T21:22:47.5848541Z",
   "manifest": null,
   "fileDate": "0001-01-01T00:00:00",
   "installedModpack": null,
@@ -69,6 +69,86 @@
   "preferenceShowAddOnInfo": true,
   "installDate": "2021-01-03T18:54:32.847268Z",
   "installedAddons": [
+    {
+      "addonID": 314904,
+      "gameInstanceID": "caa84283-746b-4656-956d-3d80539a8496",
+      "installedFile": {
+        "id": 3038811,
+        "displayName": "ftb-backups-2.1.1.6.jar",
+        "fileName": "ftb-backups-2.1.1.6.jar",
+        "fileDate": "2020-08-21T19:55:35.923Z",
+        "fileLength": 44329,
+        "releaseType": 1,
+        "fileStatus": 4,
+        "downloadUrl": "https://edge.forgecdn.net/files/3038/811/ftb-backups-2.1.1.6.jar",
+        "isAlternate": false,
+        "alternateFileId": 0,
+        "dependencies": [],
+        "isAvailable": true,
+        "modules": [
+          {
+            "foldername": "META-INF",
+            "fingerprint": 877028652,
+            "type": 0,
+            "invalidFingerprint": false
+          },
+          {
+            "foldername": "com",
+            "fingerprint": 3270655232,
+            "type": 0,
+            "invalidFingerprint": false
+          },
+          {
+            "foldername": "assets",
+            "fingerprint": 2230058698,
+            "type": 0,
+            "invalidFingerprint": false
+          },
+          {
+            "foldername": "pack.mcmeta",
+            "fingerprint": 2532301426,
+            "type": 0,
+            "invalidFingerprint": false
+          },
+          {
+            "foldername": "logo.png",
+            "fingerprint": 2955125231,
+            "type": 0,
+            "invalidFingerprint": false
+          }
+        ],
+        "packageFingerprint": 64481104,
+        "gameVersion": [
+          "1.16.3",
+          "1.16.1",
+          "1.16.4",
+          "1.16.2"
+        ],
+        "hasInstallScript": false,
+        "isCompatibleWithClient": false,
+        "categorySectionPackageType": 0,
+        "restrictProjectFileAccess": 0,
+        "projectStatus": 0,
+        "projectId": 0,
+        "gameVersionDateReleased": "2008-03-01T06:00:00Z",
+        "gameId": 0,
+        "isServerPack": false,
+        "FileNameOnDisk": "ftb-backups-2.1.1.6.jar"
+      },
+      "dateInstalled": "2021-01-03T21:22:19.1382821Z",
+      "dateUpdated": "2021-01-03T21:22:19.1612298Z",
+      "dateLastUpdateAttempted": "2021-01-03T21:22:19.1612298Z",
+      "status": 4,
+      "preferenceAutoInstallUpdates": null,
+      "preferenceAlternateFile": false,
+      "preferenceIsIgnored": false,
+      "isModified": false,
+      "isWorkingCopy": false,
+      "isFuzzyMatch": false,
+      "preferenceReleaseType": null,
+      "manifestName": null,
+      "installedTargets": []
+    },
     {
       "addonID": 223852,
       "gameInstanceID": "caa84283-746b-4656-956d-3d80539a8496",
