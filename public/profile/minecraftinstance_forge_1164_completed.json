@@ -30,7 +30,7 @@
   "isUnlocked": true,
   "javaArgsOverride": null,
   "javaDirOverride": null,
-  "lastPlayed": "2021-01-03T21:22:47.5848541Z",
+  "lastPlayed": "2021-01-03T22:30:31.4520551Z",
   "manifest": null,
   "fileDate": "0001-01-01T00:00:00",
   "installedModpack": null,
@@ -46,7 +46,7 @@
   "name": "(Completed) Forge 1.16.4",
   "cachedScans": [],
   "isValid": true,
-  "lastPreviousMatchUpdate": "0001-01-01T00:00:00",
+  "lastPreviousMatchUpdate": "2021-01-03T21:43:59.6296928Z",
   "isEnabled": true,
   "isPinned": false,
   "gameVersion": "1.16.4",
@@ -1141,6 +1141,85 @@
       "dateInstalled": "2021-01-03T19:21:37.7004264Z",
       "dateUpdated": "2021-01-03T19:21:37.7153891Z",
       "dateLastUpdateAttempted": "2021-01-03T19:21:37.7153891Z",
+      "status": 4,
+      "preferenceAutoInstallUpdates": null,
+      "preferenceAlternateFile": false,
+      "preferenceIsIgnored": false,
+      "isModified": false,
+      "isWorkingCopy": false,
+      "isFuzzyMatch": false,
+      "preferenceReleaseType": null,
+      "manifestName": null,
+      "installedTargets": []
+    },
+    {
+      "addonID": 247126,
+      "gameInstanceID": "caa84283-746b-4656-956d-3d80539a8496",
+      "installedFile": {
+        "id": 3128898,
+        "displayName": "thutperms-1.16.4-4.0.0.jar",
+        "fileName": "thutperms-1.16.4-4.0.0.jar",
+        "fileDate": "2020-12-03T01:58:44.69Z",
+        "fileLength": 60253,
+        "releaseType": 1,
+        "fileStatus": 4,
+        "downloadUrl": "https://edge-service.overwolf.wtf/files/3128/898/thutperms-1.16.4-4.0.0.jar",
+        "isAlternate": false,
+        "alternateFileId": 0,
+        "dependencies": [
+          {
+            "id": 0,
+            "addonId": 251135,
+            "type": 2,
+            "fileId": 0
+          }
+        ],
+        "isAvailable": true,
+        "modules": [
+          {
+            "foldername": "META-INF",
+            "fingerprint": 125137910,
+            "type": 0,
+            "invalidFingerprint": false
+          },
+          {
+            "foldername": "thut",
+            "fingerprint": 1478298110,
+            "type": 0,
+            "invalidFingerprint": false
+          },
+          {
+            "foldername": "assets",
+            "fingerprint": 2362656584,
+            "type": 0,
+            "invalidFingerprint": false
+          },
+          {
+            "foldername": "pack.mcmeta",
+            "fingerprint": 1167576799,
+            "type": 0,
+            "invalidFingerprint": false
+          }
+        ],
+        "packageFingerprint": 2907462437,
+        "gameVersion": [
+          "Forge",
+          "1.16.4"
+        ],
+        "hasInstallScript": false,
+        "isCompatibleWithClient": false,
+        "categorySectionPackageType": 0,
+        "restrictProjectFileAccess": 0,
+        "projectStatus": 0,
+        "projectId": 0,
+        "gameVersionDateReleased": "2019-08-01T00:00:00Z",
+        "gameId": 0,
+        "isServerPack": false,
+        "FileNameOnDisk": "thutperms-1.16.4-4.0.0.jar"
+      },
+      "dateInstalled": "2021-01-03T22:30:05.0704466Z",
+      "dateUpdated": "2021-01-03T22:30:05.0714205Z",
+      "dateLastUpdateAttempted": "2021-01-03T22:30:05.0714205Z",
       "status": 4,
       "preferenceAutoInstallUpdates": null,
       "preferenceAlternateFile": false,
