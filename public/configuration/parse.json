@@ -1,8 +1,20 @@
 {
     "profiles": [
         {
-            "location": "https://raw.githubusercontent.com/RatserX/minecraft-instance-parse/main/public/profile/minecraftinstance.json",
-            "name": "Web"
+            "location": "https://raw.githubusercontent.com/RatserX/minecraft-instance-parse/main/public/profile/minecraftinstance_forge_1164_completed.json",
+            "name": "(Completed) Forge 1.16.4"
+        },
+        {
+            "location": "https://raw.githubusercontent.com/RatserX/minecraft-instance-parse/main/public/profile/minecraftinstance_forge_1164_required.json",
+            "name": "(Required) Forge 1.16.4"
+        },
+        {
+            "location": "https://raw.githubusercontent.com/RatserX/minecraft-instance-parse/main/public/profile/minecraftinstance_forge_1163_completed.json",
+            "name": "(Completed) Forge 1.16.3"
+        },
+        {
+            "location": "https://raw.githubusercontent.com/RatserX/minecraft-instance-parse/main/public/profile/minecraftinstance_forge_1163_required.json",
+            "name": "(Required) Forge 1.16.3"
         },
         {
             "location": "$PROFILE_PUBLIC_PATH/minecraftinstance.json",
