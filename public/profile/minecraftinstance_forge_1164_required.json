@@ -30,7 +30,7 @@
   "isUnlocked": true,
   "javaArgsOverride": null,
   "javaDirOverride": null,
-  "lastPlayed": "2021-01-09T08:39:50.3721326Z",
+  "lastPlayed": "2021-01-09T22:06:51.6105339Z",
   "manifest": null,
   "fileDate": "0001-01-01T00:00:00",
   "installedModpack": null,
@@ -46,7 +46,7 @@
   "name": "(Required) Forge 1.16.4",
   "cachedScans": [],
   "isValid": true,
-  "lastPreviousMatchUpdate": "2021-01-09T07:09:59.9118575Z",
+  "lastPreviousMatchUpdate": "2021-01-09T19:08:54.7334434Z",
   "isEnabled": true,
   "isPinned": false,
   "gameVersion": "1.16.4",
@@ -1210,7 +1210,7 @@
       "isFuzzyMatch": false,
       "preferenceReleaseType": null,
       "manifestName": null,
-      "installedTargets": []
+      "installedTargets": null
     },
     {
       "addonID": 288885,
@@ -1855,84 +1855,6 @@
       "installedTargets": null
     },
     {
-      "addonID": 245755,
-      "gameInstanceID": "6a67b73a-3433-4603-aecb-4672797ca28a",
-      "installedFile": {
-        "id": 3098215,
-        "displayName": "Waystones_1.16.3-7.3.1.jar",
-        "fileName": "Waystones_1.16.3-7.3.1.jar",
-        "fileDate": "2020-10-31T18:57:07.823Z",
-        "fileLength": 201797,
-        "releaseType": 1,
-        "fileStatus": 4,
-        "downloadUrl": "https://edge.forgecdn.net/files/3098/215/Waystones_1.16.3-7.3.1.jar",
-        "isAlternate": false,
-        "alternateFileId": 0,
-        "dependencies": [],
-        "isAvailable": true,
-        "modules": [
-          {
-            "foldername": "META-INF",
-            "fingerprint": 1038747364,
-            "type": 0,
-            "invalidFingerprint": false
-          },
-          {
-            "foldername": "net",
-            "fingerprint": 2128989207,
-            "type": 0,
-            "invalidFingerprint": false
-          },
-          {
-            "foldername": "assets",
-            "fingerprint": 2402969495,
-            "type": 0,
-            "invalidFingerprint": false
-          },
-          {
-            "foldername": "data",
-            "fingerprint": 479223525,
-            "type": 0,
-            "invalidFingerprint": false
-          },
-          {
-            "foldername": "pack.mcmeta",
-            "fingerprint": 1362067209,
-            "type": 0,
-            "invalidFingerprint": false
-          }
-        ],
-        "packageFingerprint": 1848494207,
-        "gameVersion": [
-          "1.16.3",
-          "1.16.4"
-        ],
-        "hasInstallScript": false,
-        "isCompatibleWithClient": false,
-        "categorySectionPackageType": 0,
-        "restrictProjectFileAccess": 0,
-        "projectStatus": 0,
-        "projectId": 0,
-        "gameVersionDateReleased": "2020-09-10T14:44:20.443Z",
-        "gameId": 0,
-        "isServerPack": false,
-        "FileNameOnDisk": "Waystones_1.16.3-7.3.1.jar"
-      },
-      "dateInstalled": "2021-01-03T20:12:45.3741091Z",
-      "dateUpdated": "2021-01-03T20:12:45.3922079Z",
-      "dateLastUpdateAttempted": "2021-01-03T20:12:45.3922079Z",
-      "status": 5,
-      "preferenceAutoInstallUpdates": null,
-      "preferenceAlternateFile": false,
-      "preferenceIsIgnored": false,
-      "isModified": false,
-      "isWorkingCopy": false,
-      "isFuzzyMatch": false,
-      "preferenceReleaseType": null,
-      "manifestName": null,
-      "installedTargets": null
-    },
-    {
       "addonID": 378549,
       "gameInstanceID": "6a67b73a-3433-4603-aecb-4672797ca28a",
       "installedFile": {
@@ -2001,6 +1923,84 @@
       "dateUpdated": "2021-01-09T02:19:29.699325Z",
       "dateLastUpdateAttempted": "2021-01-09T02:19:29.699325Z",
       "status": 4,
+      "preferenceAutoInstallUpdates": null,
+      "preferenceAlternateFile": false,
+      "preferenceIsIgnored": false,
+      "isModified": false,
+      "isWorkingCopy": false,
+      "isFuzzyMatch": false,
+      "preferenceReleaseType": null,
+      "manifestName": null,
+      "installedTargets": null
+    },
+    {
+      "addonID": 245755,
+      "gameInstanceID": "6a67b73a-3433-4603-aecb-4672797ca28a",
+      "installedFile": {
+        "id": 3098215,
+        "displayName": "Waystones_1.16.3-7.3.1.jar",
+        "fileName": "Waystones_1.16.3-7.3.1.jar",
+        "fileDate": "2020-10-31T18:57:07.823Z",
+        "fileLength": 201797,
+        "releaseType": 1,
+        "fileStatus": 4,
+        "downloadUrl": "https://edge.forgecdn.net/files/3098/215/Waystones_1.16.3-7.3.1.jar",
+        "isAlternate": false,
+        "alternateFileId": 0,
+        "dependencies": [],
+        "isAvailable": true,
+        "modules": [
+          {
+            "foldername": "META-INF",
+            "fingerprint": 1038747364,
+            "type": 0,
+            "invalidFingerprint": false
+          },
+          {
+            "foldername": "net",
+            "fingerprint": 2128989207,
+            "type": 0,
+            "invalidFingerprint": false
+          },
+          {
+            "foldername": "assets",
+            "fingerprint": 2402969495,
+            "type": 0,
+            "invalidFingerprint": false
+          },
+          {
+            "foldername": "data",
+            "fingerprint": 479223525,
+            "type": 0,
+            "invalidFingerprint": false
+          },
+          {
+            "foldername": "pack.mcmeta",
+            "fingerprint": 1362067209,
+            "type": 0,
+            "invalidFingerprint": false
+          }
+        ],
+        "packageFingerprint": 1848494207,
+        "gameVersion": [
+          "1.16.3",
+          "1.16.4"
+        ],
+        "hasInstallScript": false,
+        "isCompatibleWithClient": false,
+        "categorySectionPackageType": 0,
+        "restrictProjectFileAccess": 0,
+        "projectStatus": 0,
+        "projectId": 0,
+        "gameVersionDateReleased": "2020-09-10T14:44:20.443Z",
+        "gameId": 0,
+        "isServerPack": false,
+        "FileNameOnDisk": "Waystones_1.16.3-7.3.1.jar"
+      },
+      "dateInstalled": "2021-01-03T20:12:45.3741091Z",
+      "dateUpdated": "2021-01-03T20:12:45.3922079Z",
+      "dateLastUpdateAttempted": "2021-01-03T20:12:45.3922079Z",
+      "status": 5,
       "preferenceAutoInstallUpdates": null,
       "preferenceAlternateFile": false,
       "preferenceIsIgnored": false,
