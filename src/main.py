@@ -8,14 +8,14 @@ import typing
 import requests
 import validators
 
+import analyzer
 import helper
 import logger
-import parser
 
 def main():
     base_path: str = os.path.dirname(__file__)
     
-    parser_configuration_file: str = os.path.join(base_path, "../public/configuration/parser.json")
+    analyzer_configuration_file: str = os.path.join(base_path, "../public/configuration/analyzer.json")
     file_public_path: str = os.path.join(base_path, "../public/file")
     log_public_path: str = os.path.join(base_path, "../public/log")
     profile_public_path: str = os.path.join(base_path, "../public/profile")
@@ -25,10 +25,10 @@ def main():
     logger_instance.set_directory(log_public_path)
     logger_instance.set_level(logger.alog.INFO)
     
-    with open(parser_configuration_file, "r") as fp:
-        parser_option: dict = json.load(fp)
+    with open(analyzer_configuration_file, "r") as fp:
+        analyzer_option: dict = json.load(fp)
     
-    profiles: list[dict] = parser_option["profiles"]
+    profiles: list[dict] = analyzer_option["profiles"]
     profile_index: int = 0
     profile_length: int = len(profiles)
 
@@ -58,37 +58,37 @@ def main():
         "PROFILE_PUBLIC_PATH": profile_public_path
     })
     
-    parser_option: dict = {}
+    analyzer_option: dict = {}
 
     if (os.path.isfile(location)):
         location_file: str = os.path.join(profile_public_path, location)
 
         with open(location_file, "r") as fp:
-            parser_option = json.load(fp)
+            analyzer_option = json.load(fp)
     elif (validators.url(location)):
         with requests.get(location) as response:
-            parser_option = response.json()
+            analyzer_option = response.json()
     
-    def parser_progress_callback(parser_progress: parser.ParserProgress) -> typing.Union[str, None]:
-        parser_progress_message: typing.Union[list[str], None] = parser_progress.message
-        parser_progress_state: str = parser_progress.state
+    def analyzer_progress_callback(analyzer_progress: analyzer.AnalyzerProgress) -> typing.Union[str, None]:
+        analyzer_progress_message: typing.Union[list[str], None] = analyzer_progress.message
+        analyzer_progress_state: str = analyzer_progress.state
         
-        if (parser_progress_state == parser.ParserState.PARSER_INFO_ADDON_INSTALL_DRAFT):
-            installed_file_display_name: str = parser_progress_message[0]
-            installed_file_download_url: str = parser_progress_message[1]
-            installed_file_file_date: str = parser_progress_message[2]
-            installed_file_file_name: str = parser_progress_message[3]
+        if (analyzer_progress_state == analyzer.AnalyzerState.ANALYZER_INFO_ADDON_INSTALL_DRAFT):
+            installed_file_display_name: str = analyzer_progress_message[0]
+            installed_file_download_url: str = analyzer_progress_message[1]
+            installed_file_file_date: str = analyzer_progress_message[2]
+            installed_file_file_name: str = analyzer_progress_message[3]
             
             logger_instance.info_append(f"Drafting addon installation . . .")
             logger_instance.info_append(f"Display name: {installed_file_display_name}")
             logger_instance.info_append(f"Download URL: {installed_file_download_url}")
             logger_instance.info_append(f"File date: {installed_file_file_date}")
             logger_instance.info_append(f"File name: {installed_file_file_name}")
-        elif (parser_progress_state == parser.ParserState.PARSER_INFO_ADDON_INSTALL_OPTION):
-            installed_file_display_name: str = parser_progress_message[0]
-            installed_file_download_url: str = parser_progress_message[1]
-            installed_file_file_date: str = parser_progress_message[2]
-            installed_file_file_name: str = parser_progress_message[3]
+        elif (analyzer_progress_state == analyzer.AnalyzerState.ANALYZER_INFO_ADDON_INSTALL_OPTION):
+            installed_file_display_name: str = analyzer_progress_message[0]
+            installed_file_download_url: str = analyzer_progress_message[1]
+            installed_file_file_date: str = analyzer_progress_message[2]
+            installed_file_file_name: str = analyzer_progress_message[3]
 
             addon_install_option: str = None
 
@@ -106,9 +106,9 @@ def main():
             logger_instance.info_append(f"--- ADDON ---")
 
             return addon_install_option
-        elif (parser_progress_state == parser.ParserState.PARSER_INFO_INSTANCE_INSTALL_PATH):
+        elif (analyzer_progress_state == analyzer.AnalyzerState.ANALYZER_INFO_INSTANCE_INSTALL_PATH):
             install_path: str = os.path.normpath(file_public_path)
-            name: str = parser_progress_message[1]
+            name: str = analyzer_progress_message[1]
 
             instance_install_path: str = os.path.normpath(install_path)
 
@@ -128,13 +128,13 @@ def main():
             logger_instance.info_append(f"Name: {name}")
             
             return instance_install_path
-        elif (parser_progress_state == parser.ParserState.PARSER_INFO_LOADER_INSTALL_DRAFT):
-            base_mod_loader_date_modified: str = parser_progress_message[0]
-            base_mod_loader_download_url: str = parser_progress_message[1]
-            base_mod_loader_file_name: str = parser_progress_message[2]
-            base_mod_loader_forge_version: str = parser_progress_message[3]
-            base_mod_loader_minecraft_version: str = parser_progress_message[4]
-            base_mod_loader_name: str = parser_progress_message[5]
+        elif (analyzer_progress_state == analyzer.AnalyzerState.ANALYZER_INFO_LOADER_INSTALL_DRAFT):
+            base_mod_loader_date_modified: str = analyzer_progress_message[0]
+            base_mod_loader_download_url: str = analyzer_progress_message[1]
+            base_mod_loader_file_name: str = analyzer_progress_message[2]
+            base_mod_loader_forge_version: str = analyzer_progress_message[3]
+            base_mod_loader_minecraft_version: str = analyzer_progress_message[4]
+            base_mod_loader_name: str = analyzer_progress_message[5]
             
             logger_instance.info_append(f"Drafting loader installation . . .")
             logger_instance.info_append(f"Date Modified: {base_mod_loader_date_modified}")
@@ -143,13 +143,13 @@ def main():
             logger_instance.info_append(f"Forge Version: {base_mod_loader_forge_version}")
             logger_instance.info_append(f"Minecraft Version: {base_mod_loader_minecraft_version}")
             logger_instance.info_append(f"Name: {base_mod_loader_name}")
-        elif (parser_progress_state == parser.ParserState.PARSER_INFO_LOADER_INSTALL_OPTION):
-            base_mod_loader_date_modified: str = parser_progress_message[0]
-            base_mod_loader_download_url: str = parser_progress_message[1]
-            base_mod_loader_file_name: str = parser_progress_message[2]
-            base_mod_loader_forge_version: str = parser_progress_message[3]
-            base_mod_loader_minecraft_version: str = parser_progress_message[4]
-            base_mod_loader_name: str = parser_progress_message[5]
+        elif (analyzer_progress_state == analyzer.AnalyzerState.ANALYZER_INFO_LOADER_INSTALL_OPTION):
+            base_mod_loader_date_modified: str = analyzer_progress_message[0]
+            base_mod_loader_download_url: str = analyzer_progress_message[1]
+            base_mod_loader_file_name: str = analyzer_progress_message[2]
+            base_mod_loader_forge_version: str = analyzer_progress_message[3]
+            base_mod_loader_minecraft_version: str = analyzer_progress_message[4]
+            base_mod_loader_name: str = analyzer_progress_message[5]
             
             loader_install_option: str = None
 
@@ -167,35 +167,35 @@ def main():
             logger_instance.info_append(f"--- LOADER ---")
 
             return loader_install_option
-        elif (parser_progress_state == parser.ParserState.PARSER_WARN_ADDON_INSTALL_SKIP):
-            installed_file_display_name: str = parser_progress_message[0]
-            installed_file_download_url: str = parser_progress_message[1]
-            installed_file_file_date: str = parser_progress_message[2]
-            installed_file_file_name: str = parser_progress_message[3]
+        elif (analyzer_progress_state == analyzer.AnalyzerState.ANALYZER_WARN_ADDON_INSTALL_SKIP):
+            installed_file_display_name: str = analyzer_progress_message[0]
+            installed_file_download_url: str = analyzer_progress_message[1]
+            installed_file_file_date: str = analyzer_progress_message[2]
+            installed_file_file_name: str = analyzer_progress_message[3]
             
             logger_instance.warn_append(f"Skipping addon installation . . .")
-        elif (parser_progress_state == parser.ParserState.PARSER_WARN_LOADER_INSTALL_SKIP):
-            base_mod_loader_date_modified: str = parser_progress_message[0]
-            base_mod_loader_download_url: str = parser_progress_message[1]
-            base_mod_loader_file_name: str = parser_progress_message[2]
-            base_mod_loader_forge_version: str = parser_progress_message[3]
-            base_mod_loader_minecraft_version: str = parser_progress_message[4]
-            base_mod_loader_name: str = parser_progress_message[5]
+        elif (analyzer_progress_state == analyzer.AnalyzerState.ANALYZER_WARN_LOADER_INSTALL_SKIP):
+            base_mod_loader_date_modified: str = analyzer_progress_message[0]
+            base_mod_loader_download_url: str = analyzer_progress_message[1]
+            base_mod_loader_file_name: str = analyzer_progress_message[2]
+            base_mod_loader_forge_version: str = analyzer_progress_message[3]
+            base_mod_loader_minecraft_version: str = analyzer_progress_message[4]
+            base_mod_loader_name: str = analyzer_progress_message[5]
             
             logger_instance.warn_append(f"Skipping loader installation . . .")
         
         return None
     
     try:
-        parser_instance = parser.Parse(parser_option)
+        analyzer_instance = analyzer.Analyzer(analyzer_option)
         
-        parser_instance.download(parser_progress_callback)
+        analyzer_instance.download(analyzer_progress_callback)
     except Exception as e:
-        exception: parser.ParserProgress = e.args[0]
+        exception: analyzer.AnalyzerProgress = e.args[0]
         exception_message: typing.Union[list[str], None] = exception.message
         exception_state: str = exception.state
 
-        if (exception_state == parser.ParserState.PARSER_CRITICAL_ADDON_DOWNLOAD_PROGRESS):
+        if (exception_state == analyzer.AnalyzerState.ANALYZER_CRITICAL_ADDON_DOWNLOAD_PROGRESS):
             message: str = exception_message[0]
             installed_file_display_name: str = exception_message[1]
             installed_file_download_url: str = exception_message[2]
@@ -203,7 +203,7 @@ def main():
             installed_file_file_name: str = exception_message[4]
             
             logger_instance.critical_append(f"Cannot download file", f"Message: {message}", f"Display Name: {installed_file_display_name}", f"Download URL: {installed_file_download_url}", f"File Date: {installed_file_file_date}", f"File Name: {installed_file_file_name}")
-        elif (exception_state == parser.ParserState.PARSER_CRITICAL_LOADER_DOWNLOAD_PROGRESS):
+        elif (exception_state == analyzer.AnalyzerState.ANALYZER_CRITICAL_LOADER_DOWNLOAD_PROGRESS):
             message: str = exception_message[0]
             base_mod_loader_date_modified: str = exception_message[1]
             base_mod_loader_download_url: str = exception_message[2]
