@@ -33,15 +33,15 @@ def main():
     profile_length: int = len(profiles)
 
     if (profile_length > 0):
-        logger_instance.info("Profiles:")
-        
-        for i in range(profile_length):
-            profile: dict = profiles[i]
-            name: str = profile["name"]
-            
-            logger_instance.info(f"[{i}] - {name}")
-        
         while True:
+            logger_instance.info("Profiles:")
+            
+            for i in range(profile_length):
+                profile: dict = profiles[i]
+                name: str = profile["name"]
+                
+                logger_instance.info(f"[{i}] - {name}")
+            
             input_index: int = helper.Number.input_numeric(f"Select profile (Default '{profile_index}'): ", profile_length, 0, profile_index)
 
             if (input_index >= 0):
@@ -49,7 +49,7 @@ def main():
 
                 break
             
-            helper.Void.deprint()
+            helper.Void.print_clear_all()
             logger_instance.warn("Invalid profile")
 
     profile: dict = profiles[profile_index]
@@ -100,7 +100,7 @@ def main():
 
                     break
                 
-                helper.Void.deprint()
+                helper.Void.print_clear_all()
                 logger_instance.warn("Invalid addon install option")
             
             logger_instance.info_append(f"--- ADDON ---")
@@ -120,7 +120,7 @@ def main():
 
                     break
                 
-                helper.Void.deprint()
+                helper.Void.print_clear_all()
                 logger_instance.warn("Invalid instance install path")
             
             logger_instance.info_append(f"--- INSTANCE ---")
@@ -161,7 +161,7 @@ def main():
 
                     break
                 
-                helper.Void.deprint()
+                helper.Void.print_clear_all()
                 logger_instance.warn("Invalid loader install option")
             
             logger_instance.info_append(f"--- LOADER ---")

@@ -64,12 +64,6 @@ class String:
         return None
 
 class Void:
-    def deprint() -> None:
-        VT100_CURSOR_UP = "\x1b[1A"
-        VT100_ERASE_LINE = "\x1b[2K"
-
-        print(f"{VT100_CURSOR_UP}{VT100_ERASE_LINE}{VT100_CURSOR_UP}")
-    
     def download_progress(file: str, url: str) -> None:
         with open(file, "wb") as f:
             url_split: list[str] = url.split("/")
@@ -82,3 +76,17 @@ class Void:
             with tqdm.tqdm.wrapattr(f, "write", desc = desc, miniters = 1, total = total) as fout:
                 for buffer in response.iter_content(4096):
                     fout.write(buffer)
+
+    def print_clear_all() -> None:
+        if os.name in ("dos", "nt"):
+            os.system("cls")
+        elif os.name in ("linux", "osx", "posix"):
+            os.system("clear")
+        else:
+            print("\n") * 120
+    
+    def print_clear_last() -> None:
+        VT100_CURSOR_UP = "\x1b[1A"
+        VT100_ERASE_LINE = "\x1b[2K"
+
+        print(f"{VT100_CURSOR_UP}{VT100_ERASE_LINE}{VT100_CURSOR_UP}")
