@@ -1,3 +1,4 @@
 alog>=1.1.0
+requests>=2.25.1
 tqdm>=4.55.0
 validators>=0.18.2
