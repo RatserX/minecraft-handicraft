@@ -17,9 +17,11 @@ Multiple profiles and be configured and they can be retrieved either from a loca
 ## Prerequisites
 
 * [Python 3.9+ Standalone Installation](https://www.python.org/ftp/python/3.9.1/python-3.9.1-amd64.exe) - Python is an interpreted, high-level and general-purpose programming language.
+
 **IMPORTANT: Check the options "Install launcher for all users (recommended)" and "Add Python to PATH", then select the "Install Now" button. Alternatively, select the "Customize installation" button, check the option "for all users (requires elevation)" when installing the Optional Features and continue the installation.**
 
 * [Python 3.9+ Windows Store](https://www.microsoft.com/en-us/p/python-39/9p7qfqmjrfp7#activetab=pivot:overviewtab) - Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming.
+
 **IMPORTANT: This is an easy alternative to the Standalone Installation. Do not install both versions.**
 
 ## Install
