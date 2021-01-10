@@ -34,6 +34,7 @@ def main():
 
     if (profile_length > 0):
         while True:
+            helper.Void.print_clear_all()
             logger_instance.info("Profiles:")
             
             for i in range(profile_length):
@@ -49,7 +50,6 @@ def main():
 
                 break
             
-            helper.Void.print_clear_all()
             logger_instance.warn("Invalid profile")
 
     profile: dict = profiles[profile_index]
@@ -93,6 +93,8 @@ def main():
             addon_install_option: str = None
 
             while True:
+                helper.Void.print_clear_all()
+
                 input_addon_install_option: str = helper.String.input_option(f"Verifying addon '{installed_file_display_name}' (Y: Process installation; N: Skip installation; A: Install everything): ", ["A", "N", "Y"])
 
                 if (input_addon_install_option is not None):
@@ -100,7 +102,6 @@ def main():
 
                     break
                 
-                helper.Void.print_clear_all()
                 logger_instance.warn("Invalid addon install option")
             
             logger_instance.info_append(f"--- ADDON ---")
@@ -113,6 +114,8 @@ def main():
             instance_install_path: str = os.path.normpath(install_path)
 
             while True:
+                helper.Void.print_clear_all()
+
                 input_instance_install_path: str = helper.String.input_path(f"Select install path (Default '{install_path}'): ", instance_install_path)
                 
                 if (input_instance_install_path is not None):
@@ -120,7 +123,6 @@ def main():
 
                     break
                 
-                helper.Void.print_clear_all()
                 logger_instance.warn("Invalid instance install path")
             
             logger_instance.info_append(f"--- INSTANCE ---")
@@ -154,6 +156,8 @@ def main():
             loader_install_option: str = None
 
             while True:
+                helper.Void.print_clear_all()
+
                 input_loader_install_option: str = helper.String.input_option(f"Verifying loader '{base_mod_loader_name}' (Y: Process installation; N: Skip installation; A: Install everything): ", ["A", "N", "Y"])
 
                 if (input_loader_install_option is not None):
@@ -161,7 +165,6 @@ def main():
 
                     break
                 
-                helper.Void.print_clear_all()
                 logger_instance.warn("Invalid loader install option")
             
             logger_instance.info_append(f"--- LOADER ---")
