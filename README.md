@@ -27,7 +27,8 @@ Multiple profiles and be configured and they can be retrieved either from a loca
 ## Install
 1. [Download](https://github.com/RatserX/minecraft-instance-analyzer/archive/main.zip) the main project.
 2. Extract the package.
-3. (Automatic) Run either `main.bat` (Windows) or `main.sh` (Linux).
+3. (Automatic) Run either `main.bat` (Windows) or `main.sh` (Linux) as administrator.
+
 3. (Manual) Install the required packages.
 ```shell
 pip3 install -r "requirements.txt"
