@@ -3,6 +3,8 @@
 
 import collections.abc
 import os
+import pathlib
+import string
 import typing
 
 import helper
@@ -29,25 +31,47 @@ class AnalyzerState:
     ANALYZER_WARN_LOADER_INSTALL_SKIP: str = "ANALYZER_WARN_LOADER_INSTALL_SKIP"
 
 class Analyzer:
-    def __init__(self, analyzer_option: dict):
+    def __init__(self, analyzer_option: dict, analyzer_instance: dict):
+        self.analyzer_instance: dict = analyzer_instance
         self.analyzer_option: dict = analyzer_option
 
     def download(self, analyzer_progress_callback: collections.abc.Callable[[AnalyzerProgress], None] = None) -> None:
-        install_path: str = self.analyzer_option["installPath"]
-        name: str = self.analyzer_option["name"]
-        installed_addons: list[dict] = self.analyzer_option["installedAddons"]
+        install_path: str = self.analyzer_instance["installPath"]
+        name: str = self.analyzer_instance["name"]
+        installed_addons: list[dict] = self.analyzer_instance["installedAddons"]
+
+        directory: dict = self.analyzer_option["directory"]
+        directory_path: str = None
+
+        if (helper.Boolean.is_linux()):
+            directory_path = directory["linux"]
+        elif (helper.Boolean.is_osx()):
+            directory_path = directory["osx"]
+        elif (helper.Boolean.is_windows()):
+            directory_path = directory["windows"]
+        
+        if (directory_path is not None):
+            directory_path_template: string.Template = string.Template(directory_path)
+            directory_path = directory_path_template.substitute({
+                "HOME": pathlib.Path.home()
+            })
+            
+            if (os.path.exists(directory_path)):
+                install_path = os.path.normpath(directory_path)
+        else:
+            install_path = os.path.normpath(install_path)
 
         instance_install_path: str = analyzer_progress_callback(AnalyzerProgress([
             f"{install_path}",
             f"{name}"
         ], AnalyzerState.ANALYZER_INFO_INSTANCE_INSTALL_PATH))
 
-        base_mod_loader_date_modified: str = self.analyzer_option["baseModLoader"]["dateModified"]
-        base_mod_loader_download_url: str = self.analyzer_option["baseModLoader"]["downloadUrl"]
-        base_mod_loader_file_name: str = self.analyzer_option["baseModLoader"]["filename"]
-        base_mod_loader_forge_version: str = self.analyzer_option["baseModLoader"]["forgeVersion"]
-        base_mod_loader_minecraft_version: str = self.analyzer_option["baseModLoader"]["minecraftVersion"]
-        base_mod_loader_name: str = self.analyzer_option["baseModLoader"]["name"]
+        base_mod_loader_date_modified: str = self.analyzer_instance["baseModLoader"]["dateModified"]
+        base_mod_loader_download_url: str = self.analyzer_instance["baseModLoader"]["downloadUrl"]
+        base_mod_loader_file_name: str = self.analyzer_instance["baseModLoader"]["filename"]
+        base_mod_loader_forge_version: str = self.analyzer_instance["baseModLoader"]["forgeVersion"]
+        base_mod_loader_minecraft_version: str = self.analyzer_instance["baseModLoader"]["minecraftVersion"]
+        base_mod_loader_name: str = self.analyzer_instance["baseModLoader"]["name"]
         
         install_process: bool = False
         loader_install_option: str = "Y"

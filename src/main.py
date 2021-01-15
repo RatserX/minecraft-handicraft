@@ -58,16 +58,16 @@ def main():
         "PROFILE_PUBLIC_PATH": profile_public_path
     })
     
-    analyzer_option: dict = {}
+    analyzer_instance: dict = {}
 
     if (os.path.isfile(location)):
         location_file: str = os.path.join(profile_public_path, location)
 
         with open(location_file, "r") as fp:
-            analyzer_option = json.load(fp)
+            analyzer_instance = json.load(fp)
     elif (validators.url(location)):
         with requests.get(location) as response:
-            analyzer_option = response.json()
+            analyzer_instance = response.json()
     
     def analyzer_progress_callback(analyzer_progress: analyzer.AnalyzerProgress) -> typing.Union[str, None]:
         analyzer_progress_message: typing.Union[list[str], None] = analyzer_progress.message
@@ -108,10 +108,14 @@ def main():
 
             return addon_install_option
         elif (analyzer_progress_state == analyzer.AnalyzerState.ANALYZER_INFO_INSTANCE_INSTALL_PATH):
-            install_path: str = os.path.normpath(file_public_path)
+            install_path: str = analyzer_progress_message[0]
             name: str = analyzer_progress_message[1]
 
-            instance_install_path: str = os.path.normpath(install_path)
+            if (install_path is None):
+                install_path = os.path.normpath(file_public_path)
+                instance_install_path: str = install_path
+            else:
+                instance_install_path: str = os.path.normpath(install_path)
 
             while True:
                 helper.Void.print_clear_all()
@@ -126,7 +130,7 @@ def main():
                 logger_instance.warn("Invalid instance install path")
             
             logger_instance.info_append(f"--- INSTANCE ---")
-            logger_instance.info_append(f"Install path: {install_path}")
+            logger_instance.info_append(f"Install path: {instance_install_path}")
             logger_instance.info_append(f"Name: {name}")
             
             return instance_install_path
@@ -190,7 +194,7 @@ def main():
         return None
     
     try:
-        analyzer_instance = analyzer.Analyzer(analyzer_option)
+        analyzer_instance = analyzer.Analyzer(analyzer_option, analyzer_instance)
         
         analyzer_instance.download(analyzer_progress_callback)
     except Exception as e:

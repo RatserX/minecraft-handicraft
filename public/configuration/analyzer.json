@@ -1,4 +1,9 @@
 {
+    "directory": {
+        "linux": "$HOME/.minecraft",
+        "osx": "$HOME/Library/Application Support/minecraft",
+        "windows": "$HOME/AppData/Roaming/.minecraft"
+    },
     "profiles": [
         {
             "location": "https://raw.githubusercontent.com/RatserX/minecraft-instance-parse/main/public/profile/minecraftinstance_forge_1164_completed.json",

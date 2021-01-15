@@ -2,6 +2,5 @@
 
 cls
 cd %~dp0
-call pip install -r "requirements.txt"
-call python "./src/main.py"
+call powershell -ExecutionPolicy "Bypass" -File "%~dp0/%~n0.ps1" -NoExit -NoProfile
 pause

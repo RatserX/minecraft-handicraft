@@ -1,5 +1,6 @@
 import os
 import requests
+import sys
 import tqdm
 import typing
 
@@ -14,6 +15,21 @@ class Boolean:
                 return False
         
         return True
+    
+    def is_aix():
+        return (sys.platform.startswith("aix"))
+    
+    def is_freebsd():
+        return (sys.platform.startswith("freebsd"))
+    
+    def is_linux():
+        return (sys.platform.startswith("linux"))
+    
+    def is_osx():
+        return (sys.platform.startswith("darwin"))
+    
+    def is_windows():
+        return (sys.platform.startswith("cygwin") or sys.platform.startswith("win32"))
 
 class Number:
     def input_numeric(prompt: typing.Any, max_number: int = -1, min_number: int = -1, default: int = 0) -> int:
