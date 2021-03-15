@@ -8,9 +8,9 @@
 
 [![Buy me a coffee](https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg)](https://www.buymeacoffee.com/Ratser)
 
-Analyzer for Minecraft instance profiles. It reads and processes profiles and allows the download of selected loaders and addons.
+Analyzer for Minecraft instance profiles used by CurseForge. It allows the download of selected loaders and addons.
 
-Multiple profiles and be configured and they can be retrieved either from a local directory or a web location. It allows the selection of a download directory, creating the appropiate directories if the path does not exists.
+Multiple profiles and be configured and they can be retrieved from either a local directory or a web location. The download directory can be customized, creating the appropiate directories if the path does not exists.
 
 ![Minecraft Instance Analyzer](https://raw.githubusercontent.com/RatserX/ratserx.github.io/master/public/images/minecraft-instance-analyzer.gif)
 
