@@ -10,7 +10,7 @@
 
 Analyzer for Minecraft instance profiles used by CurseForge. It allows the download of selected loaders and addons.
 
-Multiple profiles and be configured and they can be retrieved from either a local directory or a web location. The download directory can be customized, creating the appropiate directories if the path does not exists.
+Multiple profiles can be configured to be retrieved from either a local directory or a web location. The download directory can be customized, creating the appropiate directories if the path does not exists.
 
 ![Minecraft Instance Analyzer](https://raw.githubusercontent.com/RatserX/ratserx.github.io/master/public/images/minecraft-instance-analyzer.gif)
 
