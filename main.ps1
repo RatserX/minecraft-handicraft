@@ -1,33 +1,20 @@
 #Requires -RunAsAdministrator
 
 # Configuration
-$SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-$WebClient = [System.Net.WebClient]::new()
+$PythonVersion = "python-3.9.6-embed-amd64"
 
-$MajorSemVer = 3
-$MinorSemVer = 9
-$PatchSemVer = 1
-$Version = "$MajorSemVer.$MinorSemVer.$PatchSemVer"
+$BaseDirectory = Resolve-Path -Path $PSScriptRoot
+$PythonDirectory = [IO.Path]::Combine($BaseDirectory, "bin", $PythonVersion)
 
-$FileNamePath = "$PSScriptRoot/python-$Version-amd64.exe"
-$Address = "https://www.python.org/ftp/python/$Version/python-$Version-amd64.exe"
-# TLS
-[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor $SecurityProtocol
+$PipFile = [IO.Path]::Combine($PythonDirectory, "Scripts/pip.exe")
+$PythonFile = [IO.Path]::Combine($PythonDirectory, "python.exe")
+# Location
+Set-Location -Path $BaseDirectory
+# Pip
+Start-Process -ArgumentList "install -r `"requirements.txt`"" -FilePath "$PipFile" -Wait
 # Python
-if (!(Get-Package -Name "Python $MajorSemVer*")) {
-    $WebClient.DownloadFile($Address, $FileNamePath)
-    
-    Start-Process -ArgumentList "/passive InstallAllUsers=1 PrependPath=1" -FilePath $FileNamePath -Wait
-}
-# Main
-Set-Location -Path $PSScriptRoot
-
-pip install -r "requirements.txt"
-python "./src/main.py"
+Start-Process -ArgumentList "./src/main.py" -FilePath "$PythonFile" -Wait
 # Finish
 Write-Host "Press any key to continue . . ."
 
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
-# Cleanup
-Start-Sleep -Seconds 1
-Remove-Item -Path $FileNamePath

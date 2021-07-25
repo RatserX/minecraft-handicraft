@@ -1,0 +1,115 @@
+{
+    "local": {
+        "name": "Local"
+    },
+    "curse": {
+        "name": "CurseForge",
+        "platform": {
+            "linux": {
+                "data": "$HOME_DIRECTORY/Curse/Minecraft/Instances/$PROFILE_NAME"
+            },
+            "osx": {
+                "data": "$HOME_DIRECTORY/Library/Curse/Minecraft/Instances/$PROFILE_NAME"
+            },
+            "windows": {
+                "data": "$HOME_DIRECTORY/Documents/Curse/Minecraft/Instances/$PROFILE_NAME"
+            }
+        }
+    },
+    "tlauncher": {
+        "name": "TLauncher",
+        "platform": {
+            "linux": {
+                "data": "$HOME_DIRECTORY/.minecraft",
+                "tasks": [
+                    ["clear", ""],
+                    ["wget", "https://tlauncher.org/jar", "TLauncher.zip"],
+                    ["unzip", "TLauncher*.zip"],
+                    ["cd", "TLauncher*"],
+                    ["java", "TLauncher*.jar", "tlauncher", -1],
+                    [
+                        "modal",
+                        "TLauncher - Linux",
+                        "Installation instructions for Linux",
+                        "1. Enter your name user (any).",
+                        "2. Select the version: Forge 1.16.5.",
+                        "3. Press the 'Install' button to start the game.",
+                        "",
+                        "Wait until the application finishes setting up the game.",
+                        "Afterwards, you can either close it or leave it open.",
+                        "",
+                        "Click OK to continue."
+                    ],
+                    ["kill", "tlauncher"]
+                ]
+            },
+            "osx": {
+                "data": "$HOME_DIRECTORY/Library/Application Support/minecraft",
+                "tasks": [
+                    ["clear", ""],
+                    ["wget", "https://tlauncher.org/jar", "TLauncher.zip"],
+                    ["unzip", "TLauncher*.zip"],
+                    ["cd", "TLauncher*"],
+                    ["java", "TLauncher*.jar", "tlauncher", -1],
+                    [
+                        "modal",
+                        "TLauncher - MacOS",
+                        "Installation instructions for MacOS",
+                        "1. Enter your name user (any).",
+                        "2. Select the version: Forge 1.16.5.",
+                        "3. Press the 'Install' button to start the game.",
+                        "",
+                        "Wait until the application finishes setting up the game.",
+                        "Afterwards, you can either close it or leave it open.",
+                        "",
+                        "Click OK to continue."
+                    ],
+                    ["kill", "tlauncher"]
+                ]
+            },
+            "windows": {
+                "data": "$HOME_DIRECTORY/AppData/Roaming/.minecraft",
+                "tasks": [
+                    ["clear", ""],
+                    ["wget", "https://tlauncher.org/jar", "TLauncher.zip"],
+                    ["unzip", "TLauncher*.zip"],
+                    ["cd", "TLauncher*"],
+                    ["java", "TLauncher*.jar", "tlauncher", -1],
+                    [
+                        "modal",
+                        "TLauncher - Windows",
+                        "Installation instructions for Windows",
+                        "1. Enter your name user (any).",
+                        "2. Select the version: Forge 1.16.5.",
+                        "3. Press the 'Install' button to start the game.",
+                        "",
+                        "Wait until the application finishes setting up the game.",
+                        "Afterwards, you can either close it or leave it open.",
+                        "",
+                        "Click OK to continue."
+                    ],
+                    ["kill", "tlauncher"]
+                ],
+                "tasks2": [
+                    ["clear", ""],
+                    ["wget", "https://tlauncher.org/installer", "TLauncher.exe"],
+                    ["call", "TLauncher*.exe", "tlauncher"],
+                    [
+                        "modal",
+                        "TLauncher - Windows",
+                        "Installation instructions for Windows",
+                        "1. Enter your name user (any).",
+                        "2. Select the version: Forge 1.16.5.",
+                        "3. Press the 'Install' button to start the game.",
+                        "",
+                        "Wait until the application finishes setting up the game.",
+                        "Afterwards, you can either close it or leave it open.",
+                        "",
+                        "Click OK to continue."
+                    ],
+                    ["kill", "tlauncher"]
+                ]
+            }
+        }
+    }
+}

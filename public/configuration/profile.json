@@ -1,0 +1,34 @@
+{
+    "forgeLocalLoader": {
+        "name": "Forge - Local - Loader",
+        "location": "$PUBLIC_PROFILE_DIRECTORY/minecraftinstance.json",
+        "tasks": [
+            ["backup", "*.jar"],
+            ["remove", "*.jar"],
+            ["backup", "mods"],
+            ["clear", "mods"],
+            ["wget", "([^\/]+).jar$", "\\1-installer.jar"],
+            ["java", "forge"],
+            [
+                "modal",
+                "Forge",
+                "Installation instructions.",
+                "1. Select the option: Install client.",
+                "2. Press the 'OK' button to install the loader.",
+                "",
+                "Click OK to continue."
+            ],
+            ["kill", "forge"]
+        ]
+    },
+    "forgeOnlineMod": {
+        "name": "Forge - Online - Mod",
+        "location": "https://raw.githubusercontent.com/RatserX/minecraft-instance-parse/main/public/profile/minecraftinstance_forge_1164_completed.json",
+        "tasks": [
+            ["backup", "*.jar"],
+            ["remove", "*.jar"],
+            ["backup", "mods"],
+            ["clear", "mods"]
+        ]
+    }
+}
