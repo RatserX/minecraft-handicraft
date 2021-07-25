@@ -85,6 +85,8 @@ class Profile:
                 TaskHelper.backup(*arguments, logger_service = self.__logger_service)
             elif (command.__eq__("clear")):
                 TaskHelper.clear(*arguments, logger_service = self.__logger_service)
+            elif (command.__eq__("dialog")):
+                TaskHelper.dialog(*arguments, widget_service = self.__widget_service)
             elif (command.__eq__("exit")):
                 TaskHelper.exit(*arguments, logger_service = self.__logger_service)
             elif (command.__eq__("java")):
@@ -95,8 +97,6 @@ class Profile:
                 ]
                 
                 TaskHelper.java(*parsed_arguments, logger_service = self.__logger_service)
-            elif (command.__eq__("modal")):
-                TaskHelper.modal(*arguments, widget_service = self.__widget_service)
             elif (command.__eq__("remove")):
                 TaskHelper.remove(*arguments, logger_service = self.__logger_service)
             elif (command.__eq__("wget")):

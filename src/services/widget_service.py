@@ -16,7 +16,7 @@ class WidgetService:
     def get_app(self):
         return self.__app
     
-    def modal(self, parent: typing.Any, message: typing.Any, caption: typing.Any = wx.MessageBoxCaptionStr, style: typing.Literal[0] = wx.OK | wx.CENTRE, pos: wx.Point = wx.DefaultPosition):
+    def message_dialog_modal(self, parent: typing.Any, message: typing.Any, caption: typing.Any = wx.MessageBoxCaptionStr, style: typing.Literal[0] = wx.OK | wx.CENTRE, pos: wx.Point = wx.DefaultPosition):
         message_dialog: wx.MessageDialog = wx.MessageDialog(parent, message, caption, style, pos)
         
         message_dialog.ShowModal()

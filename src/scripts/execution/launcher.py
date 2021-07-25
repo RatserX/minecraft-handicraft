@@ -44,12 +44,12 @@ class Launcher:
                 TaskHelper.cd(*arguments)
             elif (command.__eq__("clear")):
                 TaskHelper.clear(*arguments, logger_service = self.__logger_service)
+            elif (command.__eq__("dialog")):
+                TaskHelper.dialog(*arguments, widget_service = self.__widget_service)
             elif (command.__eq__("exit")):
                 TaskHelper.exit(*arguments, logger_service = self.__logger_service)
             elif (command.__eq__("java")):
                 TaskHelper.java(*arguments, logger_service = self.__logger_service)
-            elif (command.__eq__("modal")):
-                TaskHelper.modal(*arguments, widget_service = self.__widget_service)
             elif (command.__eq__("unzip")):
                 TaskHelper.unzip(*arguments, logger_service = self.__logger_service)
             elif (command.__eq__("wget")):

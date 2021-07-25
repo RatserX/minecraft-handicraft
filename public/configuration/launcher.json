@@ -28,7 +28,7 @@
                     ["cd", "TLauncher*"],
                     ["java", "TLauncher*.jar", "tlauncher", -1],
                     [
-                        "modal",
+                        "dialog",
                         "TLauncher - Linux",
                         "Installation instructions for Linux",
                         "1. Enter your name user (any).",
@@ -52,7 +52,7 @@
                     ["cd", "TLauncher*"],
                     ["java", "TLauncher*.jar", "tlauncher", -1],
                     [
-                        "modal",
+                        "dialog",
                         "TLauncher - MacOS",
                         "Installation instructions for MacOS",
                         "1. Enter your name user (any).",
@@ -76,7 +76,7 @@
                     ["cd", "TLauncher*"],
                     ["java", "TLauncher*.jar", "tlauncher", -1],
                     [
-                        "modal",
+                        "dialog",
                         "TLauncher - Windows",
                         "Installation instructions for Windows",
                         "1. Enter your name user (any).",
@@ -95,7 +95,7 @@
                     ["wget", "https://tlauncher.org/installer", "TLauncher.exe"],
                     ["call", "TLauncher*.exe", "tlauncher"],
                     [
-                        "modal",
+                        "dialog",
                         "TLauncher - Windows",
                         "Installation instructions for Windows",
                         "1. Enter your name user (any).",

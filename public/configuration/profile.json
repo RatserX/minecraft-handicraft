@@ -10,7 +10,7 @@
             ["wget", "([^\/]+).jar$", "\\1-installer.jar"],
             ["java", "forge"],
             [
-                "modal",
+                "dialog",
                 "Forge",
                 "Installation instructions.",
                 "1. Select the option: Install client.",

@@ -76,6 +76,18 @@ class TaskHelper:
         task_directory = ExecutionStore.directory
         ExecutionStore.directory = PathHelper.get_directory_glob(task_directory, cd_path)
     
+    def dialog(*args: typing.Any, widget_service: WidgetService) -> None:
+        dialog_messages: tuple = args[3:]
+        dialog_header: tuple = args[2]
+        dialog_caption: tuple = args[1]
+        
+        task_messages: list[str] = [f"{dialog_header}\n"] + list(dialog_messages)
+        task_message: str = "\n".join(task_messages)
+        task_parsed_message: str = re.sub(r"[^\S\n]+", " ", task_message)
+        task_caption: str = dialog_caption
+
+        widget_service.message_dialog_modal(None, task_parsed_message, task_caption)
+    
     def exit(*args: typing.Any, logger_service: LoggerService) -> None:
         exit_key: str = args[1]
 
@@ -112,18 +124,6 @@ class TaskHelper:
         else:
             logger_service.warn_append(f"'{InspectHelper.get_function_name()}' task failed. Subprocess already exists.")
             #raise KeyError(f"Java key already exists: {java_key}")
-    
-    def modal(*args: typing.Any, widget_service: WidgetService) -> None:
-        modal_messages: tuple = args[3:]
-        modal_header: tuple = args[2]
-        modal_caption: tuple = args[1]
-        
-        task_messages: list[str] = [f"{modal_header}\n"] + list(modal_messages)
-        task_message: str = "\n".join(task_messages)
-        task_parsed_message: str = re.sub(r"[^\S\n]+", " ", task_message)
-        task_caption: str = modal_caption
-
-        widget_service.modal(None, task_parsed_message, task_caption)
     
     def remove(*args: typing.Any, logger_service: LoggerService) -> None:
         remove_path: str = args[1]
