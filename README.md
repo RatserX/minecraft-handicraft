@@ -52,9 +52,9 @@ python "./src/main.py"
 
 | Path | Type | Description |
 | ------------ | ------------ | ------------ |
-| `autorun.json` | **Optional** | Allows you to automatically run the program by defining a valid launcher or profile key. In case this file is deleted, the program will ask you for input. |
-| `launcher.json` | **Required** | Allows you to handle the setup of launchers independently for each platform (Windows, MacOS, Linux). |
-| `profile.json` | **Required** | Allows you to handle the setup of loaders and mods based on a CurseForge Minecraft Instance profile. |
+| `autorun.json` | **Optional** | File that allows you to automatically run the program by defining a valid launcher or profile key. In case this file is deleted, the program will ask you for input. |
+| `launcher.json` | **Required** | File that allows you to handle the setup of launchers independently for each platform (Windows, MacOS, Linux). |
+| `profile.json` | **Required** | File that allows you to handle the setup of loaders and mods based on a CurseForge Minecraft Instance profile. |
 
 #### Configuration
 
@@ -62,28 +62,28 @@ python "./src/main.py"
 
 | Key | Type | Description |
 | ------------ | ------------ | ------------ |
-| `launcher` | **Required** | Defines the launcher key to be automatically used. |
-| `profile` | **Required** | Defines the profile key to be automatically used. |
+| `launcher` | **Required** | Launcher key. |
+| `profile` | **Required** | Profile key. |
 
 ###### launcher.json
 
 | Key | Type | Description |
 | ------------ | ------------ | ------------ |
-| `[key]` | **Required** | Defines the launcher key. |
-| └ `name` | **Required** | . |
-| └ `platform` | **Optional** | . |
-| └─ `(linux/osx/windows)` | **Optional** | . |
-| └── `data` | **Optional** | . |
-| └── `tasks` | **Optional** | Defines which tasks are supposed to run. Allowed tasks are: *call, cd, clear, exit, java, modal, unzip, wget*. |
+| `[key]` | **Required** | Launcher key. |
+| └ `name` | **Required** | Option name. |
+| └ `platform` | **Optional** | Platform settings. |
+| └─ `(linux/osx/windows)` | **Optional** | Specific platform settings. |
+| └── `data` | **Optional** | Minecraft data directory location. |
+| └── `tasks` | **Optional** | Task list. Allowed tasks are: *call, cd, clear, exit, java, modal, unzip, wget*. |
 
 ###### profile.json
 
 | Key | Type | Description |
 | ------------ | ------------ | ------------ |
-| `[key]` | **Required** | Defines the profile key. |
-| └ `name` | **Required** | . |
-| └ `location` | **Required** | Defines the location of CurseForge Minecraft Instance profiles. |
-| └ `tasks` | **Required** | Defines which tasks are supposed to run. Allowed tasks are: *backup, clear, exit, java, modal, remove, wget*. |
+| `[key]` | **Required** | Profile key. |
+| └ `name` | **Required** | Option name. |
+| └ `location` | **Required** | CurseForge Minecraft Instance location. |
+| └ `tasks` | **Optional** | Task list. Allowed tasks are: *backup, clear, exit, java, modal, remove, wget*. |
 
 #### Task
 
