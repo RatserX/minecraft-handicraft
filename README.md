@@ -1,18 +1,15 @@
 
 # handicraft
 
-> A tool to automate the setup of Minecraft launchers, loaders and mods
+> A Minecraft tool to automate the installation of launchers. It also allows the installation of addons through a valid CurseForge Custom Profile.
 
 [![python-39-blue](https://img.shields.io/badge/python-v3.9-blue)](https://www.python.org/) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 [![Buy me a coffee](https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg)](https://www.buymeacoffee.com/Ratser)
 
-Tired of having to manually deal with the setup of all the necessary stuff to join your friend's Minecraft server? Not anymore!
+Manually dealing with launchers and addons is a problem of the past.
 
-Customize which components to download and install. Define which type of launcher to setup and use. Also, through a CurseForge Minecraft Instance configuration file you can select which loaders or mods to use.
-Forge? Fabric? No problem!
-
- Share your configuration files with your friends so you can all get the same components!
+Customize which launcher to download and install. Define a profile and let it automatically handle the setup of all the necessary addons you need for that specific server. Forge? Fabric? No problem!
 
 ![Handicraft](https://raw.githubusercontent.com/RatserX/ratserx.github.io/master/public/images/minecraft-instance-analyzer.gif)
 
@@ -70,20 +67,20 @@ python "./src/main.py"
 | Key | Type | Description |
 | ------------ | ------------ | ------------ |
 | `[key]` | **Required** | Launcher key. |
-| └ `name` | **Required** | Option name. |
-| └ `platform` | **Optional** | Platform settings. |
-| └─ `(linux/osx/windows)` | **Optional** | Specific platform settings. |
-| └── `data` | **Optional** | Minecraft data directory location. |
-| └── `tasks` | **Optional** | Task list. Allowed tasks are: *call, cd, clear, exit, java, modal, unzip, wget*. |
+| ↦ `name` | **Required** | Option name. |
+| ↦ `platform` | **Optional** | Platform settings. |
+| ↦ ↦ `[platform]` | **Optional** | Specific platform settings. Valid keys are: *linux, osx, windows*. |
+| ↦ ↦ ↦ `data` | **Optional** | Minecraft data directory location. |
+| ↦ ↦ ↦ `tasks` | **Optional** | Task list. Allowed tasks are: *call, cd, clear, exit, java, modal, unzip, wget*. |
 
 ###### profile.json
 
 | Key | Type | Description |
 | ------------ | ------------ | ------------ |
 | `[key]` | **Required** | Profile key. |
-| └ `name` | **Required** | Option name. |
-| └ `location` | **Required** | CurseForge Minecraft Instance location. |
-| └ `tasks` | **Optional** | Task list. Allowed tasks are: *backup, clear, exit, java, modal, remove, wget*. |
+| ↦ `name` | **Required** | Option name. |
+| ↦ `location` | **Required** | CurseForge Minecraft Instance location. |
+| ↦ `tasks` | **Optional** | Task list. Allowed tasks are: *backup, clear, exit, java, modal, remove, wget*. |
 
 #### Task
 
