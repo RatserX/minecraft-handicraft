@@ -1,7 +1,7 @@
 
-# handicraft
+# minecraft-handicraft
 
-> A Minecraft tool to automate the installation of launchers. It also allows the installation of addons through a valid CurseForge Custom Profile.
+> Handicraft is a Minecraft tool that can be used automate the installation of launchers. It also allows the installation of addons through a valid CurseForge Custom Profile.
 
 [![python-39-blue](https://img.shields.io/badge/python-v3.9-blue)](https://www.python.org/) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
@@ -23,7 +23,7 @@ Customize which launcher to download and install. Define a profile and let it au
 
 ## Installation
 
-1.  [Download](https://github.com/RatserX/minecraft-tool-handicraft/archive/main.zip) the main project.
+1.  [Download](https://github.com/RatserX/minecraft-handicraft/archive/main.zip) the main project.
 2. Extract the package.
 3. Run as administrator either `main.bat` on Windows, `main.sh` on Linux or manually run the required commands for every other case.
 ```shell
