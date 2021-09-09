@@ -23,7 +23,7 @@ Customize which launcher to download and install. Define a profile and let it au
 
 ## Installation
 
-1.  [Download](https://github.com/RatserX/handicraft/archive/main.zip) the main project.
+1.  [Download](https://github.com/RatserX/minecraft-tool-handicraft/archive/main.zip) the main project.
 2. Extract the package.
 3. Run as administrator either `main.bat` on Windows, `main.sh` on Linux or manually run the required commands for every other case.
 ```shell
